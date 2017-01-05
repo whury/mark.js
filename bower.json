@@ -25,7 +25,8 @@
   "description": "Highlight keywords using JavaScript. Intended for every use case. Can e.g. be used to mark text in search results.",
   "main": "dist/mark.js",
   "moduleType": [
-    "global", "amd"
+    "global",
+    "amd"
   ],
   "repository": {
     "type": "git",
@@ -33,7 +34,9 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "jquery": ">1.10"
+    "jquery": ">1.10",
+    "jasmine-jquery": "^2.1.1",
+    "jasmine": "^2.5.2"
   },
   "ignore": [
     "*",
