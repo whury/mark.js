@@ -182,7 +182,9 @@ module.exports = config => {
             "karma-coverage"
         ],
         sauceLabs: {
-            testName: "mark.js unit tests"
+            testName: "mark.js unit tests",
+            recordVideo: true,
+            recordScreenshots: true
         },
         customLaunchers: customLaunchers,
         browsers: Object.keys(customLaunchers),
