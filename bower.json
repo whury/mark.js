@@ -36,7 +36,8 @@
   "devDependencies": {
     "jquery": ">1.10",
     "jasmine-jquery": "^2.1.1",
-    "jasmine": "^2.5.2"
+    "jasmine": "^2.5.2",
+    "requirejs": "^2.3.2"
   },
   "ignore": [
     "*",
