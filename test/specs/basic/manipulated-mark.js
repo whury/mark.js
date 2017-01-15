@@ -5,31 +5,31 @@
  * Released under the MIT license https://git.io/vwTVl
  *****************************************************/
 "use strict";
-describe("unmark with elements inside marked elements", function () {
-    var $ctx;
-    beforeEach(function (done) {
-        loadFixtures("basic/manipulated-mark.html");
+define(["basic/unmark"], function () {
+    describe("unmark with elements inside marked elements", function () {
+        var $ctx;
+        beforeEach(function (done) {
+            loadFixtures("basic/manipulated-mark.html");
 
-        $ctx = $(".basic-manipulated-mark");
-        var instance = new Mark($ctx[0]);
-        instance.mark("lorem ipsum", {
-            "diacritics": false,
-            "separateWordSearch": false,
-            "done": function () {
-                $("<span />", {
-                    "html": "test",
-                    "id": "manipulatedMark"
-                }).appendTo($ctx.find("mark").first());
-                instance.unmark({
-                    "done": function () {
-                        done();
-                    }
-                });
-            }
+            $ctx = $(".basic-manipulated-mark");
+            var instance = new Mark($ctx[0]);
+            instance.mark("lorem ipsum", {
+                "diacritics": false,
+                "separateWordSearch": false,
+                "done": function () {
+                    $("<span />", {
+                        "html": "test",
+                        "id": "manipulatedMark"
+                    }).appendTo($ctx.find("mark").first());
+                    instance.unmark({
+                        "done": done
+                    });
+                }
+            });
         });
-    });
 
-    it("should not delete subsequently added elements", function () {
-        expect($ctx).toContainElement("#manipulatedMark");
+        it("should not delete subsequently added elements", function () {
+            expect($ctx).toContainElement("#manipulatedMark");
+        });
     });
 });

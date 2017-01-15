@@ -5,30 +5,30 @@
  * Released under the MIT license https://git.io/vwTVl
  *****************************************************/
 "use strict";
-describe("basic unmark with exclude", function () {
-    var $ctx;
-    beforeEach(function (done) {
-        loadFixtures("basic/unmark-exclude.html");
+define(["basic/unmark"], function () {
+    describe("basic unmark with exclude", function () {
+        var $ctx;
+        beforeEach(function (done) {
+            loadFixtures("basic/unmark-exclude.html");
 
-        $ctx = $(".basic-unmark-exclude");
-        new Mark($ctx[0]).mark("lorem ipsum", {
-            "diacritics": false,
-            "separateWordSearch": false,
-            "done": function () {
-                new Mark($ctx[0]).unmark({
-                    "exclude": [
-                        "*[data-ignore] *",
-                        ".ignore *"
-                    ],
-                    "done": function(){
-                        done();
-                    }
-                });
-            }
+            $ctx = $(".basic-unmark-exclude");
+            new Mark($ctx[0]).mark("lorem ipsum", {
+                "diacritics": false,
+                "separateWordSearch": false,
+                "done": function () {
+                    new Mark($ctx[0]).unmark({
+                        "exclude": [
+                            "*[data-ignore] *",
+                            ".ignore *"
+                        ],
+                        "done": done
+                    });
+                }
+            });
         });
-    });
 
-    it("should not unmark inside exclude selectors", function () {
-        expect($ctx.find("mark")).toHaveLength(2);
+        it("should not unmark inside exclude selectors", function () {
+            expect($ctx.find("mark")).toHaveLength(2);
+        });
     });
 });

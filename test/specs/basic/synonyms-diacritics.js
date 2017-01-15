@@ -5,24 +5,27 @@
  * Released under the MIT license https://git.io/vwTVl
  *****************************************************/
 "use strict";
-describe("basic mark with synonyms and diacritics", function () {
-    var $ctx;
-    beforeEach(function (done) {
-        loadFixtures("basic/synonyms-diacritics.html");
+define([
+    "basic/array-keyword", "basic/synonyms", "basic/diacritics"
+], function () {
+    describe("basic mark with synonyms and diacritics", function () {
+        var $ctx;
+        beforeEach(function (done) {
+            loadFixtures("basic/synonyms-diacritics.html");
 
-        $ctx = $(".basic-synonyms-diacritics");
-        new Mark($ctx[0]).mark(["dolor", "amet"], {
-            "separateWordSearch": false,
-            "synonyms": {
-                "dolor": "justo"
-            },
-            "done": function () {
-                done();
-            }
+            $ctx = $(".basic-synonyms-diacritics");
+            new Mark($ctx[0]).mark(["dolor", "amet"], {
+                "diacritics": true,
+                "separateWordSearch": false,
+                "synonyms": {
+                    "dolor": "justo"
+                },
+                "done": done
+            });
         });
-    });
 
-    it("should find synonyms with diacritics", function () {
-        expect($ctx.find("mark")).toHaveLength(13);
+        it("should find synonyms with diacritics", function () {
+            expect($ctx.find("mark")).toHaveLength(13);
+        });
     });
 });

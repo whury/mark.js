@@ -5,23 +5,23 @@
  * Released under the MIT license https://git.io/vwTVl
  *****************************************************/
 "use strict";
-describe("basic mark with diacritics", function () {
-    var $ctx;
-    beforeEach(function (done) {
-        loadFixtures("basic/diacritics.html");
+define(["basic/context-array"], function () {
+    describe("basic mark with diacritics", function () {
+        var $ctx;
+        beforeEach(function (done) {
+            loadFixtures("basic/diacritics.html");
 
-        $ctx = $(".basic-diacritics");
-        // including a term with a "s" and a whitespace to check "merge blanks"
-        // behavior in combination with diacritics
-        new Mark($ctx[0]).mark(["dolor", "amet", "justo", "lores ipsum"], {
-            "separateWordSearch": false,
-            "done": function () {
-                done();
-            }
+            $ctx = $(".basic-diacritics");
+            // including a term with a "s" and a whitespace to check "merge
+            // blanks" behavior in combination with diacritics
+            new Mark($ctx[0]).mark(["dolor", "amet", "justo", "lores ipsum"], {
+                "separateWordSearch": false,
+                "done": done
+            });
         });
-    });
 
-    it("should treat normal and diacritic characters equally", function () {
-        expect($ctx.find("mark")).toHaveLength(14);
+        it("should treat normal and diacritic characters equally", function () {
+            expect($ctx.find("mark")).toHaveLength(14);
+        });
     });
 });

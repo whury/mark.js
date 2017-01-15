@@ -5,7 +5,7 @@
  * Released under the MIT license https://git.io/vwTVl
  *****************************************************/
 "use strict";
-define(function () {
+define(["basic/done"], function () {
     describe("basic mark", function () {
         var $ctx, ret;
         beforeEach(function (done) {

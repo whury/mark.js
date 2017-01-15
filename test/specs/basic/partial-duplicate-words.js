@@ -5,23 +5,25 @@
  * Released under the MIT license https://git.io/vwTVl
  *****************************************************/
 "use strict";
-describe(
-    "basic mark with array consisting of partial duplicate words",
-    function () {
-        var $ctx;
-        beforeEach(function (done) {
-            loadFixtures("basic/partial-duplicate-words.html");
+define(["basic/array-keyword"], function () {
+    describe(
+        "basic mark with array consisting of partial duplicate words",
+        function () {
+            var $ctx;
+            beforeEach(function (done) {
+                loadFixtures("basic/partial-duplicate-words.html");
 
-            $ctx = $(".basic-partial-duplicate-words");
-            new Mark($ctx[0]).mark(["test", "lorem test ipsum"], {
-                "diacritics": false,
-                "separateWordSearch": false,
-                "done": done
+                $ctx = $(".basic-partial-duplicate-words");
+                new Mark($ctx[0]).mark(["test", "lorem test ipsum"], {
+                    "diacritics": false,
+                    "separateWordSearch": false,
+                    "done": done
+                });
             });
-        });
 
-        it("should wrap all array strings", function () {
-            expect($ctx.find("mark")).toHaveLength(3);
-        });
-    }
-);
+            it("should wrap all array strings", function () {
+                expect($ctx.find("mark")).toHaveLength(3);
+            });
+        }
+    );
+});
