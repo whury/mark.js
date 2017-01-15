@@ -6,7 +6,7 @@
  *****************************************************/
 "use strict";
 var specs = [
-    [ // essential for all other tests
+    [ // essentials for all other basic tests
         "basic/done",
         "basic/main"
     ],
@@ -60,6 +60,35 @@ var specs = [
         "basic/unmark-exclude",
         "basic/unmark-jquery",
         "basic/unmark"
+    ],
+    [ // nested
+        "nested/main",
+        "nested/unmark"
+    ],
+    [ // essentials for all other regexp tests
+        "regexp/done",
+        "regexp/main"
+    ],
+    [ // regexp
+        "regexp/filter",
+        "regexp/ignore-groups",
+        "regexp/infinite",
+        "regexp/jquery",
+        "regexp/main",
+        "regexp/no-match"
+    ],
+    [ // essentials for all other iframe tests
+        "iframes/main"
+    ],
+    [ // iframes
+        "iframes/disabled",
+        "iframes/exclude",
+        "iframes/inaccessible",
+        "iframes/nested-unmark",
+        "iframes/nested",
+        "iframes/onload",
+        "iframes/readystate",
+        "iframes/unmark"
     ]
 ];
 requirejs.config({
