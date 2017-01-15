@@ -95,7 +95,7 @@ requirejs.config({
     deps: [
         "jasmine-boot",
         "jasmine-jquery",
-        "manual.conf",
+        typeof window.__karma__ === "undefined" ? "manual.conf": "karma.conf",
         "jquery",
         "mark",
         "jquery.mark"
