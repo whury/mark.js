@@ -292,6 +292,8 @@ class Mark { // eslint-disable-line no-unused-vars
             return `()([^${lsJoin}]*${str}[^${lsJoin}]*)`;
         case "exactly":
             return `(^|\\s${lsJoin})(${str})(?=$|\\s${lsJoin})`;
+        case "prefix":
+            return `(^|\\s${lsJoin})(${str})`;
         }
     }
 
